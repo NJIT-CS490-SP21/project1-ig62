@@ -95,6 +95,17 @@ class SpotifyAPI(object):
         track_data = data.json()
         return track_data
         
+    def lookup_artist_info(self, artist):
+        id_raw = self.get_artist(artist)
+        id = id_raw["artists"]["items"][0]["id"]
+        headers = {
+            "Authorization": f"Bearer {self.access_token}"
+        }
+        search_endpoint = f'https://api.spotify.com/v1/artists/{id}'
+        data = requests.get(search_endpoint, headers=headers)
+        artist_data = data.json()
+        return artist_data
+        
         
         
         

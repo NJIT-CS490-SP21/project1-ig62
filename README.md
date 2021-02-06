@@ -40,6 +40,10 @@ def lookup_tracks(self, track_id):
 ```
 *Note:* Some tracks might not have any preview depending on the `market`  
 
+### Image won't load properly
+*Problem*  - Images that are stored locally weren't being uploaded properly.
+*Solution* - This is a temporary solution: Upload the image on a picture hosting website such as [imgur](https://imgur.com)
+
 # To do:  
 
 1. Error catching when a track has `preview_url` set to `None`

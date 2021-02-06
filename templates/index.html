@@ -2,18 +2,25 @@
 <html>
     <head>
         <link rel="stylesheet" href={{ url_for('static', filename='styles.css') }} />
+        <style>
+            .avatar{
+                border-radius: 50%;                <!-- Add this on styles.css -->
+            }
+        </style>
     </head>
     <body>
         <div class='container'>
             <h1>{{ track_name }}</h2>
-            <h2>by {{ artist }}</h1>
+            <img class="avatar" src="{{ artist_img }}" style="width:120px;height120"px;>
+            <h3>by {{ artist }}</h3>
             <h3><img src="{{ image }}"></h3>
             <h4>
                 <audio controls autoplay>
                 <source src="{{ track_prev }}" type="video/mp4">
                 </audio>
             </h4>
-            <img src="https://d.facdn.net/art/kelpu/1558553406/1558553406.kelpu_hau_walk_800.gif" style="width:120px;height:120px;">
+            <img src="https://i.imgur.com/3HkkqOm.gif" style="width:400px;height230px;">
         </div>
     </body>
 </html>
+
