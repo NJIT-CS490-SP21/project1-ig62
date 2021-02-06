@@ -1,30 +1,30 @@
-#Project 1
+# Project 1
 
 Ian Gabrielle Gojo Cruz  
 CS 490 - 004  
 
-##Description
+## Description
 
 This project is for CS 490 class at NJIT.  
 This is a simple _music discovery_ webapp that utilize third-party APIs from [Spotify](https://developer.spotify.com/) and [Genius](https://docs.genius.com/).  
 
-##Language and Libraries
+## Language and Libraries
 1. Python
 2. Flask
 3. HTML
 4. CSS
 5. Heroku
 
-##Known Problems and Solutions
+## Known Problems and Solutions
 
-###Client ID and Client Secret
+### Client ID and Client Secret
 
 *Problem*  - I had a problem where my `CLIENT_ID` and `CLIENT_SECRET` did not load from my `.env` file.  
 *Solution* - I realized that I missed a code that loads `.env` file into my python program.  
 ```python
 load_dotenv(find_dotenv())
 ```
-###Missing preview_url
+### Missing preview_url  
 *Problem*  - `preview_url` is set to None for some cases when getting an artist's track information using `lookup_artist_tracks`.  
 *Solution* - I made a separate function to search for that specific track using the `track_id` from the `.json` data provided in `lookup_artist_tracks`.  
 ```python
