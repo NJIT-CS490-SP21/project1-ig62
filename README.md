@@ -1,4 +1,4 @@
-# Project 1
+# Project 1 - WIP 
 
 Ian Gabrielle Gojo Cruz  
 CS 490 - 004  
@@ -38,3 +38,11 @@ def lookup_tracks(self, track_id):
         track_data = data.json()
         return track_data
 ```
+*Note:* Some tracks might not have any preview depending on the `market`  
+
+# To do:  
+
+1. Error catching when a track has `preview_url` set to `None`
+2. Simplify functions in `spotify.py`
+3. Add functionalities using Genius
+4. Deployment using Heroku
