@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href={{ url_for('static', filename='styles.css') }} />
+    </head>
+    <body>
+        <div class='container'>
+            <h1>{{ track_name }}</h2>
+            <h2>by {{ artist }}</h1>
+            <h3><img src="{{ image }}"></h3>
+            <h4>
+                <audio controls autoplay>
+                <source src="{{ track_prev }}" type="video/mp4">
+                </audio>
+            </h4>
+            <img src="https://d.facdn.net/art/kelpu/1558553406/1558553406.kelpu_hau_walk_800.gif" style="width:120px;height:120px;">
+        </div>
+    </body>
+</html>
