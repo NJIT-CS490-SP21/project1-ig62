@@ -22,7 +22,7 @@ class SpotifyAPI(object):
         client_creds_b64 = base64.b64encode(client_creds.encode())
         return client_creds_b64.decode()
     
-    def get_auth(self):
+    def get_auth(self):                                                 #assigns self.access_token an access token, a product of authentication process
         token_endpoint = self.token_endpoint
         
         token_data = {
@@ -47,32 +47,32 @@ class SpotifyAPI(object):
         self.access_token = access_token
         return True
     
-    def get_access_token(self):
-        token = self.access_token
+    def get_access_token(self):                                       #recursive call to request an access token
+        token = self.access_token                                     #incorporate inside headers
         if token == None:
             self.get_auth()
             return self.get_access_token()
         return token
     """
     def get_resource(self):
-        access_token = self.get_access_token()
+        access_token = self.get_access_token()                        #work in progress
         headers = {
             auth_headers = {
              "Authorization": f"Bearer {access_token}"
         }
     """
-    def get_artist(self, artist_query):
+    def get_artist(self, artist_query):                                                 #returns a json containing an artist's info
         headers = {
             "Authorization": f"Bearer {self.access_token}"
         }
         search_endpoint = 'https://api.spotify.com/v1/search'
-        data = urlencode({"q": {artist_query.lower()}, "type": "artist"})
+        data = urlencode({"q": {artist_query.lower()}, "type": "artist"})               #converts a key value pair into a url friendly string i.e query=tania+bowra&offset=0&limit=20&type=artist
         lookup_url = f"{search_endpoint}?{data}"
         artist_data = requests.get(lookup_url, headers=headers)
         artist = artist_data.json()
         return(artist)
     
-    def lookup_artist_tracks(self, artist):
+    def lookup_artist_tracks(self, artist):                                             #uses artist ID frrom get_artist to lookup artist's top tracks
         id_raw = self.get_artist(artist)
         id = id_raw["artists"]["items"][0]["id"]
         headers = {
@@ -85,7 +85,7 @@ class SpotifyAPI(object):
         artist_data = data.json()
         return artist_data
     
-    def lookup_tracks(self, track_id):
+    def lookup_tracks(self, track_id):                                                 #uses track ID from lookup_artist_tracks in order to get preview_url that is not present from lookup_artist_tracks 
         track_id = track_id
         headers = {
             "Authorization": f"Bearer {self.access_token}"
@@ -95,7 +95,7 @@ class SpotifyAPI(object):
         track_data = data.json()
         return track_data
         
-    def lookup_artist_info(self, artist):
+    def lookup_artist_info(self, artist):                                             #uses artist ID from get_artists in order to get artist image
         id_raw = self.get_artist(artist)
         id = id_raw["artists"]["items"][0]["id"]
         headers = {

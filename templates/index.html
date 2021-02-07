@@ -2,18 +2,13 @@
 <html>
     <head>
         <link rel="stylesheet" href={{ url_for('static', filename='styles.css') }} />
-        <style>
-            .avatar{
-                border-radius: 50%;                <!-- Add this on styles.css -->
-            }
-        </style>
     </head>
     <body>
         <div class='container'>
             <h1>{{ track_name }}</h2>
             <img class="avatar" src="{{ artist_img }}" style="width:120px;height120"px;>
             <h3>by {{ artist }}</h3>
-            <h3><img src="{{ image }}"></h3>
+            <img class="album" src="{{ image }}">
             <h4>
                 <audio controls autoplay>
                 <source src="{{ track_prev }}" type="video/mp4">
