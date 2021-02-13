@@ -98,8 +98,7 @@ class SpotifyAPI(object):
         data = requests.get(search_endpoint, headers=headers)
         artist_data = data.json()
         return artist_data
-        
-        
-        
-        
-        
+
+    
+    
+    
