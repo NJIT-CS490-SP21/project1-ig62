@@ -19,7 +19,7 @@ def main():
     random_number_a = random.randint(0, 2) #random generated numbers for which artist and which track to load
     random_number_t = random.randint(0, 9)
     
-    artist_name = ["HIPPO CAMPUS", "BAD SUNS", "TWO DOOR CINEMA CLUB"] #hard coded list of artists
+    artist_name = ["ERASERHEADS", "RIVERMAYA", "PAROKYA NI EDGAR"] #hard coded list of artists
     track_name = []
     track_id = []
     preview_url = []

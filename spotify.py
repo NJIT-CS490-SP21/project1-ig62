@@ -53,14 +53,7 @@ class SpotifyAPI(object):
             self.get_auth()
             return self.get_access_token()
         return token
-    """
-    def get_resource(self):
-        access_token = self.get_access_token()                        #work in progress
-        headers = {
-            auth_headers = {
-             "Authorization": f"Bearer {access_token}"
-        }
-    """
+  
     def get_artist(self, artist_query):                                                 #returns a json containing an artist's info
         headers = {
             "Authorization": f"Bearer {self.access_token}"
@@ -72,14 +65,14 @@ class SpotifyAPI(object):
         artist = artist_data.json()
         return(artist)
     
-    def lookup_artist_tracks(self, artist):                                             #uses artist ID frrom get_artist to lookup artist's top tracks
+    def lookup_artist_tracks(self, artist):                                             #uses artist ID from get_artist to lookup artist's top tracks
         id_raw = self.get_artist(artist)
         id = id_raw["artists"]["items"][0]["id"]
         headers = {
             "Authorization": f"Bearer {self.access_token}"
         }
         search_endpoint = f'https://api.spotify.com/v1/artists/{id}/top-tracks'
-        query_params = "market=US"
+        query_params = "market=PH"
         lookup_url = f"{search_endpoint}?{query_params}"
         data = requests.get(lookup_url, headers=headers)
         artist_data = data.json()
