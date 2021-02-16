@@ -72,7 +72,7 @@ class SpotifyAPI(object):
             "Authorization": f"Bearer {self.access_token}"
         }
         search_endpoint = f'https://api.spotify.com/v1/artists/{id}/top-tracks'
-        query_params = "market=PH"
+        query_params = "market=US"
         lookup_url = f"{search_endpoint}?{query_params}"
         data = requests.get(lookup_url, headers=headers)
         artist_data = data.json()

@@ -18,10 +18,10 @@ def main():
     client_secret = os.getenv('CLIENT_SECRET')
     g_access_token = os.getenv('HACCESS_TOKEN')
     
-    random_number_a = random.randint(0, 2) #random generated numbers for which artist and which track to load
+    random_number_a = random.randint(0, 6) #random generated numbers for which artist and which track to load
     random_number_t = random.randint(0, 9)
     
-    artist_name = ["ERASERHEADS", "RIVERMAYA", "PAROKYA NI EDGAR"] #hard coded list of artists
+    artist_name = ["HIPPO CAMPUS", "BAD SUNS", "TAYLOR SWIFT", "BLACK PINK", "BTS", "JUICE WRLD", "ARIANA GRANDE"] #hard coded list of artists
     track_name = []
     track_id = []
     preview_url = []
@@ -41,7 +41,6 @@ def main():
         preview_url.append(track_data["preview_url"])
     
     lyrics_url = genius.get_song_info(track_name[random_number_t], artist_name[random_number_a])
-    print(lyrics_url['response']['hits'][0]['result']['url'])
     return render_template(
             "index.html",
             artist = artist_name[random_number_a],

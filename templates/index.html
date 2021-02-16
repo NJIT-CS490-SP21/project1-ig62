@@ -10,10 +10,14 @@
             <h3>by {{ artist }}</h3>
             <img class="album" src="{{ image }}">
             <h4>
+                {% if track_prev == None %}
+                <p class='container'><b>No Music Preview Available </b></p>
+                {% else %}
                 <audio controls autoplay>
                 <source src="{{ track_prev }}" type="video/mp4">
                 </audio>
-                <p><a href="{{ lyrics_url }}">Click here to see the lyrics!</a></p>
+                {% endif %}
+                <p class='container'><a href="{{ lyrics_url }}" target="_blank">Click here to see the lyrics!</a></p>
             </h4>
             <img src="https://i.imgur.com/3HkkqOm.gif" style="width:400px;height230px;">
         </div>
